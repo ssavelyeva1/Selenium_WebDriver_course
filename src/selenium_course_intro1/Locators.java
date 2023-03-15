@@ -9,7 +9,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 public class Locators {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--remote-allow-origins=*");
 		WebDriver driver = new ChromeDriver(options);
@@ -25,8 +25,29 @@ public class Locators {
 		
 		// CSS selector: class name -> tagname.classname; id -> tagname#id; attribute -> tagname[attribute='value']
 		System.out.println(driver.findElement(By.cssSelector("p.error")).getText());
+		driver.findElement(By.linkText("Forgot your password?")).click();
 		
+		Thread.sleep(1000); // way to avoid ButtonClickInterception exception
 		
+		//Xpath - tagname[@attribute='value']
+		driver.findElement(By.xpath("//input[@placeholder='Name']")).sendKeys("John");
+		
+		driver.findElement(By.cssSelector("input[placeholder='Email']")).sendKeys("john@rsa.com");
+		driver.findElement(By.xpath("//input[@type='text'][2]")).clear();
+		driver.findElement(By.cssSelector("input[placeholder='Email']")).sendKeys("john@gmail.com");
+		driver.findElement(By.cssSelector("input[placeholder='Email']")).clear();
+		driver.findElement(By.cssSelector("input[type='text']:nth-child(3)")).sendKeys("john@gmail.com");
+		
+		driver.findElement(By.xpath("//form/input[3]")).sendKeys("98928523498");
+		driver.findElement(By.cssSelector(".reset-pwd-btn")).click();
+		System.out.println(driver.findElement(By.cssSelector("form p")).getText());
+		
+		driver.findElement(By.className("go-to-login-btn")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.cssSelector("#inputUsername")).sendKeys("rahul");
+		driver.findElement(By.cssSelector("input[type*='pass']")).sendKeys("rahulshettyacademy");
+		driver.findElement(By.id("chkboxOne")).click();
+		driver.findElement(By.xpath("//button[contains(@class,'submit')]")).click();
 		
 	}
 
