@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-public class UpdatedDropdown {
+public class Dropdown {
 
 	public static void main(String[] args) throws InterruptedException {
 
@@ -15,24 +15,12 @@ public class UpdatedDropdown {
 		
 		driver.get("https://rahulshettyacademy.com/dropdownsPractise/");
 		
-		driver.findElement(By.id("divpaxinfo")).click();
+		// dropdown with the dynamic options
+		driver.findElement(By.id("ctl00_mainContent_ddl_originStation1_CTXT")).click();
+		driver.findElement(By.xpath("//a[@value='BLR']")).click();
 		Thread.sleep(2000);
-		
-		// to click on +1 passenger 4 times in the dropdown (while or for statement)
-		
-//		int i = 1;
-//		while(i < 5) {
-//			driver.findElement(By.id("hrefIncAdt")).click();
-//			i++;
-//		}
-		
-		for (int i = 1; i < 5; i++) {
-			driver.findElement(By.id("hrefIncAdt")).click();
-		}
-		
-		driver.findElement(By.id("btnclosepaxoption")).click();
-		System.out.println(driver.findElement(By.id("divpaxinfo")).getText());
-		
+		driver.findElement(By.xpath("(//a[@value='MAA'])[2]")).click();
+
 	}
 
 }
