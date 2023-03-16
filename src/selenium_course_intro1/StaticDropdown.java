@@ -27,7 +27,6 @@ public class StaticDropdown {
 		dropdown.selectByValue("INR");
 		System.out.println(dropdown.getFirstSelectedOption().getText());
 		
-		
 	}
 
 }
