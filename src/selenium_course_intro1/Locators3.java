@@ -12,9 +12,11 @@ public class Locators3 {
 		options.addArguments("--remote-allow-origins=*");
 		WebDriver driver = new ChromeDriver(options);
 		
-		// siblings - parent traverse
+		// sibling - parent traverse
 		driver.get("https://rahulshettyacademy.com/AutomationPractice/");
 		System.out.println(driver.findElement(By.xpath("//header/div/button[1]/following-sibling::button[1]")).getText());
+		// parent - sibling traverse
+		driver.findElement(By.xpath("//header/div/button[1]/parent::div/button[2]")).getText();
 
 	}
 
