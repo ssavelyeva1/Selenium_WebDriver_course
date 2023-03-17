@@ -24,6 +24,16 @@ public class UpdatedDropdown {
 		// count the number of checkboxes
 		System.out.println(driver.findElements(By.cssSelector("input[type='checkbox']")).size());
 		
+		driver.findElement(By.id("ctl00_mainContent_rbtnl_Trip_1")).click();
+		//driver.findElement(By.name("ctl00$mainContent$view_date2")).isEnabled();
+		// checking if the calendar is enebled or not
+		if (driver.findElement(By.id("Div1")).getAttribute("style").contains("1")) {
+			Assert.assertTrue(true);
+		} else {
+			Assert.assertFalse(false);
+		}
+		
+		
 		driver.findElement(By.id("divpaxinfo")).click();
 		Thread.sleep(2000);
 		
