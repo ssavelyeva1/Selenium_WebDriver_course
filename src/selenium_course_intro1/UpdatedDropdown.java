@@ -33,7 +33,6 @@ public class UpdatedDropdown {
 			Assert.assertFalse(false);
 		}
 		
-		
 		driver.findElement(By.id("divpaxinfo")).click();
 		Thread.sleep(2000);
 		
