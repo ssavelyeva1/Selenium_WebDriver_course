@@ -12,7 +12,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 
-public class fluentWaitTest {
+public class FluentWaitTest {
 
 	public static void main(String[] args) {
 
