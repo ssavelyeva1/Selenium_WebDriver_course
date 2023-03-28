@@ -43,14 +43,20 @@ public class StreamLambda {
 		names.add("Mark");
 		names.add("Clint");
 		
+		// counting names starting with A
 		Long c = names.stream().filter(s->s.startsWith("A")).count();
 		System.out.println(c);
 		
+		// doing the same
 		Stream<String> d = Stream.of("Anna","Arnold","Don","Aliaksandra","Mark","Clint").filter(s->{
 			s.startsWith("A");
 			return false;
 		});
 		System.out.println(d);
+		
+		// printing all the names of ArrayList
+		names.stream().filter(s->s.length()>4).forEach(s->System.out.println());
+		
 	}
 
 }
