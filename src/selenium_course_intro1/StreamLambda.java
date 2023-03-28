@@ -1,6 +1,7 @@
 package selenium_course_intro1;
 
 import java.util.ArrayList;
+import java.util.stream.Stream;
 
 import org.testng.annotations.Test;
 
@@ -42,8 +43,14 @@ public class StreamLambda {
 		names.add("Mark");
 		names.add("Clint");
 		
-		names.stream().filter(s->s.startsWith("A"));
+		Long c = names.stream().filter(s->s.startsWith("A")).count();
+		System.out.println(c);
 		
+		Stream<String> d = Stream.of("Anna","Arnold","Don","Aliaksandra","Mark","Clint").filter(s->{
+			s.startsWith("A");
+			return false;
+		});
+		System.out.println(d);
 	}
 
 }
