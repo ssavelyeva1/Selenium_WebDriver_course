@@ -31,10 +31,10 @@ public class StreamLambda {
 		System.out.println(count);
 
 	}
-	
+
 	@Test
 	public void streamFilter() {
-		
+
 		ArrayList<String> names = new ArrayList<String>();
 		names.add("Anna");
 		names.add("Arnold");
@@ -42,21 +42,21 @@ public class StreamLambda {
 		names.add("Aliaksandra");
 		names.add("Mark");
 		names.add("Clint");
-		
+
 		// counting names starting with A
-		Long c = names.stream().filter(s->s.startsWith("A")).count();
+		Long c = names.stream().filter(s -> s.startsWith("A")).count();
 		System.out.println(c);
-		
+
 		// doing the same
-		Stream<String> d = Stream.of("Anna","Arnold","Don","Aliaksandra","Mark","Clint").filter(s->{
+		Stream<String> d = Stream.of("Anna", "Arnold", "Don", "Aliaksandra", "Mark", "Clint").filter(s -> {
 			s.startsWith("A");
-			return false;
+			return true;
 		});
 		System.out.println(d);
-		
+
 		// printing all the names of ArrayList
-		names.stream().filter(s->s.length()>4).forEach(s->System.out.println());
-		
+		names.stream().filter(s -> s.length() > 4).forEach(s -> System.out.println());
+
 	}
 
 }
