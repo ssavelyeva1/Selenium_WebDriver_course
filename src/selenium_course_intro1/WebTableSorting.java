@@ -36,11 +36,19 @@ public class WebTableSorting {
 		Assert.assertTrue(originalList.equals(sortedList));
 
 		// scanning the name column and getting the price
-		List<String> price = elementsList.stream().filter(s -> s.getText().contains("Beans"))
-				.map(s -> getVeggiePrice(s)).collect(Collectors.toList());
-		
-		price.forEach(a->System.out.println(a));
+		List<String> price;
 
+		do {
+			List<WebElement> rows = driver.findElements(By.xpath("//tr/td[1]"));
+
+			price = rows.stream().filter(s -> s.getText().contains("Rice")).map(s -> getVeggiePrice(s))
+					.collect(Collectors.toList());
+
+			price.forEach(a -> System.out.println(a));
+			if (price.size() < 1) {
+				driver.findElement(By.cssSelector("[aria-label='Next']")).click();
+			}
+		} while (price.size() < 1);
 	}
 
 	private static String getVeggiePrice(WebElement s) {
