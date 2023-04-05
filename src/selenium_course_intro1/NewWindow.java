@@ -45,6 +45,10 @@ public class NewWindow {
 		// capturing a screenprint of a webelement and saving it to the project folder
 		File file = fieldName.getScreenshotAs(OutputType.FILE);
 		FileUtils.copyFile(file, new File("logo.png"));
+		
+		// capturing dimensions of webelement
+		System.out.println(fieldName.getRect().getDimension().getHeight());
+		System.out.println(fieldName.getRect().getDimension().getWidth());
 
 	}
 
